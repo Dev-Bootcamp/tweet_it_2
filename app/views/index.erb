@@ -7,8 +7,7 @@
     # we should show her a form that will allow her to send a tweet. If there is no
     # user logged-in, we should show the sign-in button.
   %>
-  <% if @access_token %>
-    <% @user = User.find_by_username(@access_token.params[:screen_name]) %>
+  <% if session[:user_id] %>
     <div>
       <form id="tweet_form" action="/tweet" method="POST">
         <label>Tweet: <textarea id="tweet" required type="text" name="tweet" maxlength="140" placeholder="enter your tweet here (maximum 140 characters)"></textarea></label>
