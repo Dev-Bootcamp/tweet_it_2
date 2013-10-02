@@ -3,7 +3,7 @@ def oauth_consumer
   @consumer ||= OAuth::Consumer.new(
     ENV['TWITTER_KEY'],
     ENV['TWITTER_SECRET'],
-    :site => "https://api.twitter.com"
+    :site => "http://api.twitter.com/"
   )
 end
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Tweet Now! 2: Multi-User</h1>
+  <h1>Tweet It Out!</h1>
 
   <%
     # In our real-world application, this is not what we want. Instead, we should
@@ -8,17 +8,18 @@
     # user logged-in, we should show the sign-in button.
   %>
   <% if @access_token %>
+    <% @user = User.find_by_username(@access_token.params[:screen_name]) %>
     <div>
-      <p>
-        <strong>token:</strong> <%= @access_token.token %><br>
-        <strong>secret:</strong> <%= @access_token.secret %><br>
-      </p>
+      <form id="tweet_form" action="/tweet" method="POST">
+        <label>Tweet: <textarea id="tweet" required type="text" name="tweet" maxlength="140" placeholder="enter your tweet here (maximum 140 characters)"></textarea></label>
+        <input type='submit' value='Tweet It!'></input>
+      </form>
       <p>
         <button><a href="/sign_out">Sign Out</a></button>
       </p>
     </div>
   <% else %>
-    <button><a href="/sign_in">Sign In with Twitter</a></button>
+    <a href="/sign_in"><img src="sign-in-with-twitter-gray.png"></a>
   <% end %>
   
 </div>
