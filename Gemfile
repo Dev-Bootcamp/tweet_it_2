@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source :rubygems
 ruby "2.0.0"
 
 # PostgreSQL driver
@@ -24,3 +24,4 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
