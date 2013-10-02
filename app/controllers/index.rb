@@ -29,11 +29,19 @@ get '/auth' do
   erb :index
 end
 
+get '/status/:job_id' do
+  # return status of a job to Ajax call
+
+end
+
 # =========== POST ====================
 
 post '/tweet' do
   user = User.find(session[:user_id])
-  tweeter = Twitter::Client.new(:oauth_token => user.oauth_token,:oauth_token_secret => user.oauth_secret)
-  tweeter.update(params[:tweet])
-  redirect '/'
+  user.tweet(params[:tweet])
+  if request.xhr?
+    erb :index, layout: false
+  else
+    redirect '/'
+  end
 end
