@@ -8,15 +8,15 @@
     # user logged-in, we should show the sign-in button.
   %>
   <% if session[:user_id] %>
-    <div>
+    <div id="tweet_box">
       <form id="tweet_form" action="/tweet" method="POST">
-        <label>Tweet: <textarea id="tweet" required type="text" name="tweet" maxlength="140" placeholder="enter your tweet here (maximum 140 characters)"></textarea></label>
-        <input type='submit' value='Tweet It!'></input>
+        <label>Tweet: <textarea id="tweet" required type="text" name="tweet" maxlength="140" placeholder="enter your tweet here (maximum 140 characters)"></textarea></label><br>
+        <input id="submit_tweet" type='submit' value='Tweet It!'></input>
       </form>
+    </div>
       <p>
         <button><a href="/sign_out">Sign Out</a></button>
       </p>
-    </div>
   <% else %>
     <a href="/sign_in"><img src="sign-in-with-twitter-gray.png"></a>
   <% end %>

@@ -39,5 +39,9 @@ end
 post '/tweet' do
   user = User.find(session[:user_id])
   user.tweet(params[:tweet])
-  redirect '/'
+  if request.xhr?
+    erb :index, layout: false
+  else
+    redirect '/'
+  end
 end
