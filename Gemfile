@@ -23,3 +23,5 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
+ruby '2.0.0'
