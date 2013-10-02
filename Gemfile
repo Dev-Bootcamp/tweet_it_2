@@ -1,11 +1,10 @@
 source :rubygems
-ruby "2.0.0"
 
 # PostgreSQL driver
 gem 'pg'
 
 # Sinatra driver
-gem 'sinatra', '1.1.0'
+gem 'sinatra'
 
 # Use Thin for our web server
 gem 'thin'
